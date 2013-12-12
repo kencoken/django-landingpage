@@ -2,11 +2,33 @@
 <html>
     <head>
         <title>This is the landing page</title>
+		{% load staticfiles %}
+		<link rel="stylesheet" href="{% static "vendor/bootstrap-css/css/bootstrap.min.css" %}">
+		<link rel="stylesheet" href="{% static "css/main.css" %}">
     </head>
     <body>
-        <form action="" method="post">{% csrf_token %}
-            {{form.as_p}}
-            <input type="submit" value="Submit">
-        </form>
+		<header class="bigheader">
+			<div id="logo"></div>
+			<div id="copy">
+				<h1>Start getting hip!</h1>
+				<h2>Fashion snap is the fastest way to get with the in crowd</h2>
+				<form action="" method="post" class="form-inline" role="form">{% csrf_token %}
+					{# Include the hidden fields #}
+					{% for hidden in form.hidden_fields %}
+					{{ hidden }}
+					{% endfor %}
+					{% for field in form.visible_fields %}
+					<div class="form-group{% if field.errors %} has-error{% endif %}">
+						<label class="sr-only" for="{{ field.id_for_label }}">{{ field.label }}</label>
+						{{ field }}
+					</div>
+					{% endfor %}
+					<input type="submit" value="Request Invite" class="btn btn-default">
+				</form>
+			</div>
+			<div id="right-img"></div>
+		</header>
+		<script type="text/javascript" src="//use.typekit.net/les5xgp.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
     </body>
 </html>

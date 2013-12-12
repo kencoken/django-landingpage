@@ -1,0 +1,10 @@
+{
+  "name": "django-landingpage/userreg",
+  "version": "0.1.0",
+  "author": "Ken Chatfield <ken.chatfield@gmail.com>",
+  "private": true,
+  "dependencies": {
+    "jquery": "2.0.x",
+    "bootstrap-css": "3.0.x"
+  }
+}
